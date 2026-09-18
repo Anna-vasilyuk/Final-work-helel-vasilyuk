@@ -1,3 +1,569 @@
+@charset "UTF-8";
+/* =========================================
+   ШРИФТИ
+   ========================================= */
+/* Montserrat Regular — звичайний текст */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Montserrat Bold — жирний текст */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* =========================================
+   БАЗОВІ НАЛАШТУВАННЯ
+   ========================================= */
+/*
+  box-sizing: border-box;
+
+  Робимо так, щоб padding і border
+  входили в задану ширину елемента.
+*/
+* {
+  box-sizing: border-box;
+}
+
+/*
+  Прибираємо стандартні відступи браузера
+  у html та body.
+*/
+html,
 body {
-  background-color: lightblue;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Встановлюємо Montserrat
+  як основний шрифт сайту.
+*/
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/*
+  Прибираємо стандартне підкреслення
+  у посилань.
+*/
+a {
+  text-decoration: none;
+}
+
+/*
+  Прибираємо стандартний стиль кнопок.
+*/
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* =========================================================
+   LAYOUT CONTAINERS (Контейнери обмежувачі)
+   ========================================================= */
+.container-small, .container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container {
+  max-width: 1440px;
+}
+
+.container-small {
+  max-width: 1320px;
+}
+
+/* =========================================================
+   PAGE HEADER (Шапка сторінки)
+   ========================================================= */
+.page-header {
+  width: 100%;
+  padding: 50px 60px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+}
+.page-header__logo {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  column-gap: 4px;
+}
+.page-header__logo-link {
+  display: grid;
+}
+.page-header__logo-link-second {
+  display: grid;
+  transform: translateY(-5px);
+}
+.page-header__logo-title {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1;
+  color: #323264;
+  transform: translateY(-6px);
+}
+.page-header__right {
+  display: grid;
+  grid-template-rows: auto auto;
+  justify-items: end;
+  gap: 15px;
+}
+.page-header__meta {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 18px;
+  align-items: center;
+}
+
+/* =========================================================
+   LANGUAGE SWITCHER (Перемикач мов)
+   ========================================================= */
+.lang-switcher {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 5px;
+}
+.lang-switcher__btn {
+  padding: 5px 7px;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #b3b3ba;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.lang-switcher__btn:hover, .lang-switcher__btn--active {
+  color: #ffffff;
+  background-color: #f0145a;
+  border-radius: 8px;
+}
+.lang-switcher__btn:focus-visible {
+  outline: 2px solid #f0145a;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* =========================================================
+   HEADER CONTACTS (Контакти в шапці)
+   ========================================================= */
+.header-contacts {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 18px;
+  align-items: center;
+}
+.header-contacts__address {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: right;
+  color: #b3b3ba;
+}
+.header-contacts__phone {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: right;
+  color: #b3b3ba;
+  text-decoration: none;
+}
+.header-contacts__fb {
+  display: grid;
+  place-items: center;
+  transition: transform 0.2s ease;
+}
+.header-contacts__fb-icon {
+  display: block;
+}
+.header-contacts__fb-icon-hover {
+  display: none;
+}
+.header-contacts__fb:hover {
+  transform: scale(1.1);
+}
+.header-contacts__fb:hover .header-contacts__fb-icon {
+  display: none;
+}
+.header-contacts__fb:hover .header-contacts__fb-icon-hover {
+  display: block;
+}
+
+/* =========================================================
+   HEADER NAVIGATION (Головне меню сайту)
+   ========================================================= */
+.header-nav {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 15px;
+  justify-content: end;
+  align-items: center;
+}
+.header-nav__link {
+  font-weight: 700;
+  font-size: 16px;
+  color: #24a3ff;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.header-nav__link:hover {
+  color: #f0145a;
+  border-bottom-color: #f0145a;
+}
+
+/* =========================================================
+   ABOUT SECTION (Секція "Про нас")
+   ========================================================= */
+.about {
+  width: 100%;
+  padding: 60px 0;
+}
+.about .container-small {
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+  gap: 30px;
+  align-items: start;
+}
+.about__content {
+  display: grid;
+  gap: 28px;
+}
+.about__title {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1;
+  background: linear-gradient(90.13deg, #f0145a 0.84%, #ef8080 40.96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about__text {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1.8;
+  text-align: left;
+  color: #000000;
+}
+.about__statistics {
+  display: grid;
+  gap: 40px;
+}
+.about__stat {
+  display: grid;
+  gap: 10px;
+}
+.about__stat-number {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: start;
+  column-gap: 8px;
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.5;
+  background: linear-gradient(90.13deg, #f0145a 0.84%, #ef8080 40.96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about__stat-number img {
+  display: block;
+  will-change: transform;
+}
+.about__stat-number img:hover {
+  animation: shake 0.4s ease-in-out;
+  filter: drop-shadow(0 0 2px #f0145a);
+}
+.about__stat-text {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  color: #323264;
+}
+
+/* =========================================================
+ TEAM PHOTO SECTION (Банер командного фото)
+ ========================================================= */
+.team-photo {
+  width: 100%;
+  position: relative;
+  display: grid;
+}
+.team-photo__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+.team-photo__title {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  text-shadow: 0 15px 30px rgba(40, 40, 86, 0.8);
+  letter-spacing: 63px;
+  margin-right: -63px;
+  transition: color 0.3s ease;
+}
+.team-photo__title:hover {
+  color: rgb(255, 255, 255);
+}
+
+/* =========================================================
+   QUALITY SECTION (Секція якості/переваг)
+   ========================================================= */
+.quality {
+  width: 100%;
+  padding: 60px 0;
+}
+.quality .container-small {
+  display: grid;
+  grid-template-columns: 6fr 3fr;
+  gap: 30px;
+}
+.quality__content {
+  display: grid;
+  gap: 28px;
+}
+.quality__title {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1;
+  background: linear-gradient(90.13deg, #f0145a 0.84%, #ef8080 40.96%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.quality__text {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 30px;
+  color: #000000;
+}
+
+/* =========================================================
+   ANIMATIONS & RESPONSIVE BREAKPOINTS (Анімації та адаптив)
+   ========================================================= */
+@keyframes shake {
+  0% {
+    transform: translateX(0) rotate(0);
+  }
+  25% {
+    transform: translateX(-3px) rotate(-2deg);
+  }
+  50% {
+    transform: translateX(3px) rotate(2deg);
+  }
+  75% {
+    transform: translateX(-2px) rotate(-1deg);
+  }
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+}
+/* =========================================================
+   TEAM SLIDER (КАРТКИ В РЯДОК + ЗАГОЛОВОК ЗВЕРХУ)
+   ========================================================= */
+.team-slider {
+  width: 100%;
+  padding: 33px 60px;
+  background-color: #f5f5fa;
+}
+.team-slider .container-small {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-bottom: 2px solid #e6e6f0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.team-slider {
+  /* ---------- ЗАГОЛОВОК H3 НА СІРОМУ ФОНІ ---------- */
+}
+.team-slider__title {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  color: #323264;
+}
+.team-slider .swiper {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+/* ---------- ПРЯМОКУТНИК З КАРТИНКОЮ 300х100 ---------- */
+.team-slide {
+  display: grid !important;
+  place-items: center;
+  padding: 25px 50px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease;
+}
+.team-slide:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(40, 40, 86, 0.12);
+}
+.team-slide__img {
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+.team-slide {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* ---------- КРАПОЧКИ ПАГІНАЦІЇ ---------- */
+.team-slider .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #24a3ff;
+  opacity: 0.3;
+  margin: 0 6px !important;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.team-slider .swiper-pagination-bullet:hover {
+  opacity: 0.6;
+  transform: scale(1.2);
+}
+.team-slider .swiper-pagination-bullet-active {
+  opacity: 1;
+  transform: scale(1.4);
+  background-color: #24a3ff;
+}
+.team-slider .swiper-pagination-bullet-active:hover {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+/* =========================================================
+   FOOTER SECTION
+   ========================================================= */
+.footer {
+  width: 100%;
+  padding: 30px 60px;
+  background-color: #f5f5fa;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  align-items: start;
+}
+.footer__info {
+  display: grid;
+  gap: 20px;
+}
+.footer__address {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 10px;
+  align-items: center;
+  justify-content: start;
+}
+.footer__address-link {
+  font-size: 16px;
+  font-weight: 400;
+  color: #323264;
+  text-decoration: none;
+}
+.footer__map-link {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #24a3ff;
+  text-decoration: none;
+}
+.footer__contacts {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 20px;
+  align-items: center;
+  justify-content: start;
+}
+.footer__contacts .header-contacts__fb {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+.footer__contacts .header-contacts__fb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.footer__contacts .header-contacts__fb .header-contacts__fb-icon-hover {
+  display: none;
+}
+.footer__contacts .header-contacts__fb:hover {
+  transform: scale(1.1);
+}
+.footer__contacts .header-contacts__fb:hover .header-contacts__fb-icon {
+  display: none;
+}
+.footer__contacts .header-contacts__fb:hover .header-contacts__fb-icon-hover {
+  display: block;
+}
+.footer__phone {
+  font-size: 16px;
+  font-weight: 700;
+  color: #323264;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer__email {
+  font-size: 16px;
+  font-weight: 700;
+  color: #24a3ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer__email:hover {
+  color: #f0145a;
+}
+.footer__copyright {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #b3b3ba;
+  text-align: right;
 }/*# sourceMappingURL=about.css.map */

@@ -1,0 +1,84 @@
+/* =========================================
+   ШРИФТИ
+   ========================================= */
+
+/* Montserrat Regular — звичайний текст */
+@font-face {
+  font-family: "Montserrat";
+  src:
+    url("../fonts/Montserrat-Regular.woff2") format("woff2"),
+    url("../fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat Bold — жирний текст */
+@font-face {
+  font-family: "Montserrat";
+  src:
+    url("../fonts/Montserrat-Bold.woff2") format("woff2"),
+    url("../fonts/Montserrat-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+$main-text-color: #323264;
+$secondary-text-color: #b3b3ba;
+$white-color: #ffffff;
+$accent-color: #f0145a;
+$blue-color: #24a3ff;
+$gradient-red-text: linear-gradient(90.13deg, #f0145a 0.84%, #ef8080 40.96%);
+$black-color: #000000;
+$grey-bg: #f5f5fa;
+$separator-color: #e6e6f0;
+/* =========================================
+   БАЗОВІ НАЛАШТУВАННЯ
+   ========================================= */
+
+/*
+  box-sizing: border-box;
+
+  Робимо так, щоб padding і border
+  входили в задану ширину елемента.
+*/
+* {
+  box-sizing: border-box;
+}
+
+/*
+  Прибираємо стандартні відступи браузера
+  у html та body.
+*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+  Встановлюємо Montserrat
+  як основний шрифт сайту.
+*/
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/*
+  Прибираємо стандартне підкреслення
+  у посилань.
+*/
+a {
+  text-decoration: none;
+}
+
+/*
+  Прибираємо стандартний стиль кнопок.
+*/
+button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
