@@ -207,7 +207,6 @@
     font-weight: 700;
     font-size: 38px;
     line-height: 1;
-    margin-top: 100px;
     background: global.$gradient-red-text;
     -webkit-background-clip: text;
     background-clip: text;
@@ -320,6 +319,9 @@
     &__statistics {
       padding-left: 30px;
       gap: 30px;
+    }
+    &__title {
+      margin-top: 100px;
     }
   }
 }
@@ -510,7 +512,6 @@
     transform: translateX(0) rotate(0);
   }
 }
-
 /* =========================================================
    TEAM SLIDER
    ========================================================= */
@@ -590,7 +591,6 @@
 .team-slide {
   box-sizing: border-box;
 
-  width: 370px !important;
   height: 110px !important;
 
   display: grid;
@@ -640,7 +640,6 @@
   }
 
   .team-slide {
-    width: 300px !important;
     height: 110px !important;
     padding: 25px 70px;
   }
@@ -658,7 +657,6 @@
   }
 
   .team-slide {
-    width: 196px !important;
     height: 110px !important;
     padding: 25px 10px;
   }
@@ -676,7 +674,6 @@
   }
 
   .team-slide {
-    width: 90px !important;
     height: 100px !important;
     padding: 25px 20px;
   }
@@ -696,7 +693,6 @@
   }
 
   .team-slide {
-    width: 100% !important;
     height: 90px !important;
     padding: 15px;
   }

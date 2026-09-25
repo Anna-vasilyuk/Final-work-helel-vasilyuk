@@ -212,7 +212,6 @@ button {
   font-weight: 700;
   font-size: 38px;
   line-height: 1;
-  margin-top: 100px;
   background: linear-gradient(90.13deg, #f0145a 0.84%, #ef8080 99.96%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -304,6 +303,9 @@ button {
   .about__statistics {
     padding-left: 30px;
     gap: 30px;
+  }
+  .about__title {
+    margin-top: 100px;
   }
 }
 /* =========================================================
@@ -509,7 +511,6 @@ button {
    ========================================================= */
 .team-slide {
   box-sizing: border-box;
-  width: 370px !important;
   height: 110px !important;
   display: grid;
   place-items: center;
@@ -543,7 +544,6 @@ button {
     max-width: 1200px;
   }
   .team-slide {
-    width: 300px !important;
     height: 110px !important;
     padding: 25px 70px;
   }
@@ -556,7 +556,6 @@ button {
     max-width: 904px;
   }
   .team-slide {
-    width: 196px !important;
     height: 110px !important;
     padding: 25px 10px;
   }
@@ -569,7 +568,6 @@ button {
     max-width: 600px;
   }
   .team-slide {
-    width: 90px !important;
     height: 100px !important;
     padding: 25px 20px;
   }
@@ -585,7 +583,6 @@ button {
     max-width: 315px;
   }
   .team-slide {
-    width: 100% !important;
     height: 90px !important;
     padding: 15px;
   }
