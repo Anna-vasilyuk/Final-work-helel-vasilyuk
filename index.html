@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Homepage | hlegal</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="scss/header.css" />
+    <link rel="stylesheet" href="scss/footer.css" />
+    <link rel="stylesheet" href="scss/home.css" />
+  </head>
+
+  <body>
+    <div class="home">
+      <div class="container">
+        <header class="page-header">
+          <div class="page-header__logo">
+            <a href="index.html" class="page-header__logo-link">
+              <img
+                src="./images/home/Logo.png"
+                alt="hlegal logo"
+                class="page-header__logo-img"
+              />
+            </a>
+
+            <!-- Бургер меню -->
+            <div class="burger">
+              <input type="checkbox" id="burger-checkbox" />
+
+              <label class="burger__button" for="burger-checkbox">
+                <span></span>
+                <span></span>
+                <span></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="page-header__right">
+            <div class="page-header__meta">
+              <ul class="lang-switcher">
+                <li class="lang-switcher__item">
+                  <button type="button" class="lang-switcher__btn">УК</button>
+                </li>
+
+                <li class="lang-switcher__item">
+                  <button type="button" class="lang-switcher__btn">FR</button>
+                </li>
+
+                <li class="lang-switcher__item">
+                  <button
+                    type="button"
+                    class="lang-switcher__btn lang-switcher__btn--active"
+                  >
+                    EN
+                  </button>
+                </li>
+              </ul>
+
+              <div class="header-contacts">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Kyiv%2C+Mechnikova+str%2C+14%2F1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="header-contacts__address"
+                >
+                  Kyiv, Mechnikova str, 14/1
+                </a>
+
+                <a href="tel:0800211927" class="header-contacts__phone">
+                  0800 211 927
+                </a>
+
+                <a
+                  href="https://facebook.com"
+                  class="header-contacts__fb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="./images/home/Facebook-Header-home.png"
+                    alt="Facebook"
+                    class="header-contacts__fb-icon"
+                  />
+
+                  <img
+                    src="./images/about/Facebook-Hover.png"
+                    alt="Facebook Hover"
+                    class="header-contacts__fb-icon-hover"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <nav class="header-nav">
+              <ul class="header-nav__list">
+                <li class="header-nav__item">
+                  <a href="about.html" class="header-nav__link"> about us </a>
+                </li>
+
+                <li class="header-nav__item">
+                  <a href="services.html" class="header-nav__link">
+                    services
+                  </a>
+                </li>
+
+                <li class="header-nav__item">
+                  <a href="team.html" class="header-nav__link"> team </a>
+                </li>
+
+                <li class="header-nav__item">
+                  <a href="publications.html" class="header-nav__link">
+                    publications
+                  </a>
+                </li>
+
+                <li class="header-nav__item">
+                  <a href="contacts.html" class="header-nav__link"> contact </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        <main>
+          <section class="hero">
+            <div class="hero__bg-image-wrapper">
+              <img
+                src="./images/home/Symbol.png"
+                alt=""
+                class="hero__bg-image"
+                aria-hidden="true"
+              />
+            </div>
+
+            <h1 class="hero__headline">you legal solutions provider</h1>
+
+            <a href="#services-tabs" class="hero__scroll-btn">
+              <svg
+                class="hero__scroll-icon"
+                width="20"
+                height="12"
+                viewBox="0 0 20 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.707092 0.707031L9.70709 9.70703L18.7071 0.707031"
+                  stroke="currentColor"
+                  stroke-width="2"
+                />
+              </svg>
+            </a>
+          </section>
+
+          <section class="services-tabs" id="services-tabs">
+            <div class="container-medium">
+              <div class="services-tabs__content">
+                <ul class="services-tabs__menu">
+                  <li class="services-tabs__menu-item">
+                    <button
+                      type="button"
+                      class="services-tabs__tab services-tabs__tab--active"
+                      data-tab="consistent"
+                    >
+                      Consistent
+                    </button>
+                  </li>
+                  <li class="services-tabs__menu-item">
+                    <button
+                      type="button"
+                      class="services-tabs__tab"
+                      data-tab="customer"
+                    >
+                      Customer oriented
+                    </button>
+                  </li>
+                  <li class="services-tabs__menu-item">
+                    <button
+                      type="button"
+                      class="services-tabs__tab"
+                      data-tab="innovative"
+                    >
+                      Innovative
+                    </button>
+                  </li>
+                  <li class="services-tabs__menu-item">
+                    <button
+                      type="button"
+                      class="services-tabs__tab"
+                      data-tab="business"
+                    >
+                      Business oriented
+                    </button>
+                  </li>
+                </ul>
+
+                <div class="services-tabs__info">
+                  <div
+                    class="services-tabs__item services-tabs__item--active"
+                    data-content="consistent"
+                  >
+                    <h3 class="services-tabs__title">
+                      We turn the idea of legal services
+                    </h3>
+                    <p class="services-tabs__text">
+                      Consolidating many years of experience and practice, the
+                      company's lawyers accompany complex projects and achieve a
+                      number of important decisions for the industry. Many of
+                      them form the practice of applying the law of the sea in
+                      Ukraine.
+                    </p>
+                  </div>
+
+                  <div class="services-tabs__item" data-content="customer">
+                    <h3 class="services-tabs__title">Customer oriented</h3>
+                    <p class="services-tabs__text">Customer oriented</p>
+                  </div>
+
+                  <div class="services-tabs__item" data-content="innovative">
+                    <h3 class="services-tabs__title">Innovative</h3>
+                    <p class="services-tabs__text">Innovative</p>
+                  </div>
+
+                  <div class="services-tabs__item" data-content="business">
+                    <h3 class="services-tabs__title">Business oriented</h3>
+                    <p class="services-tabs__text">Business oriented</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="advantages-grid" id="advantages-grid">
+            <div class="container-medium">
+              <span class="advantages-grid__subtitle">
+                Services&nbsp;<span>&gt;</span>
+              </span>
+              <h2 class="advantages-grid__title">
+                What can we do better than others?
+              </h2>
+
+              <ul class="advantages-grid__wrapper">
+                <li class="services-card">
+                  <div class="services-card__icon-wrapper">
+                    <img
+                      src="./images/home/Ecommerce-1.png"
+                      alt=""
+                      class="services-card__icon"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="services-card__title">IT and e-commerce</h3>
+                  <p class="services-card__text">
+                    An endless stream of contracts, tax issues, labor relations,
+                    corporate layers - legal routine steals time from doing
+                    business. But there is a lot of work to do in it.
+                  </p>
+                </li>
+
+                <li class="services-card">
+                  <div class="services-card__icon-wrapper">
+                    <img
+                      src="./images/home/Support-2.png"
+                      alt=""
+                      class="services-card__icon"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="services-card__title">
+                    Comprehensive daily legal support
+                  </h3>
+                  <p class="services-card__text">
+                    In addition, over time, the text of the contract becomes the
+                    same type and uninteresting for a full-time lawyer. And your
+                    lawyer may not feel well.
+                  </p>
+                </li>
+
+                <li class="services-card">
+                  <div class="services-card__icon-wrapper">
+                    <img
+                      src="./images/home/Coprorate-3.png"
+                      alt=""
+                      class="services-card__icon"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="services-card__title">
+                    Structuring corporate relationships
+                  </h3>
+                  <p class="services-card__text">
+                    Instead of just providing legal services, we will became a
+                    lawyer or a whole team that fits into the daily life of your
+                    company.
+                  </p>
+                </li>
+
+                <li class="services-card">
+                  <div class="services-card__icon-wrapper">
+                    <img
+                      src="./images/home/Trust-4.png"
+                      alt=""
+                      class="services-card__icon"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="services-card__title">
+                    Building contractual relations
+                  </h3>
+                  <p class="services-card__text">
+                    Once a week, or even more often, you will have your own
+                    lawyer by your side. Anyone in the company can launch a task
+                    in the messenger.
+                  </p>
+                </li>
+
+                <li class="services-card">
+                  <div class="services-card__icon-wrapper">
+                    <img
+                      src="./images/home/Protection-5.png"
+                      alt=""
+                      class="services-card__icon"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="services-card__title">
+                    Protection of business, intellectual property
+                  </h3>
+                  <p class="services-card__text">
+                    And all the other time we will work on new business
+                    projects, so the internal routine will not stop professional
+                    development.
+                  </p>
+                </li>
+
+                <li class="services-card">
+                  <div class="services-card__icon-wrapper">
+                    <img
+                      src="./images/home/Court-6.png"
+                      alt=""
+                      class="services-card__icon"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <h3 class="services-card__title">Judicial representation</h3>
+                  <p class="services-card__text">
+                    Is it a small, medium retail company or a market leader?
+                    Local business or multinational company? Do you have your
+                    own legal department or not?
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </main>
+      </div>
+
+      <section class="reviews-block" id="reviews">
+        <div class="container-medium">
+          <div class="swiper reviews-block__slider">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide review-card">
+                <div class="review-card__image-container">
+                  <img
+                    src="./images/home/Sasha.png"
+                    alt="Олександр Олександровський"
+                    class="review-card__photo"
+                  />
+                </div>
+
+                <div class="review-card__content">
+                  <span class="review-card__category">
+                    Команда&nbsp;<span
+                      class="review-card__arrow"
+                      aria-hidden="true"
+                      >&gt;</span
+                    >
+                  </span>
+
+                  <div class="review-card__text">
+                    Ми звикли брати на себе відповідальність та завжди
+                    гарантуємо чесну, вчасну допомогу, навіть у ситуаціях, коли
+                    більшість безсилі.
+                  </div>
+
+                  <div class="review-card__meta">
+                    <span class="review-card__author-name"
+                      >Олександр Олександровський</span
+                    >
+                    <span class="review-card__author-role"
+                      >Керуючий партнер</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide review-card">
+                <div class="review-card__image-container">
+                  <img
+                    src="./images/home/Oksana.png"
+                    alt="Оксана Кобзар"
+                    class="review-card__photo"
+                  />
+                </div>
+                <div class="review-card__content">
+                  <span class="review-card__category">
+                    Команда&nbsp;<span
+                      class="review-card__arrow"
+                      aria-hidden="true"
+                      >&gt;</span
+                    >
+                  </span>
+                  <div class="review-card__text">
+                    Ми звикли брати на себе відповідальність та завжди
+                    гарантуємо чесну, вчасну допомогу, навіть у ситуаціях, коли
+                    більшість безсилі.
+                  </div>
+                  <div class="review-card__meta">
+                    <span class="review-card__author-name">Оксана Кобзар</span>
+                    <span class="review-card__author-role"
+                      >Партнер-співвласник, адвокат</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="swiper-slide review-card">
+                <div class="review-card__image-container">
+                  <img
+                    src="./images/home/Sergey.png"
+                    alt="Сергій Бінн"
+                    class="review-card__photo"
+                  />
+                </div>
+                <div class="review-card__content">
+                  <span class="review-card__category">
+                    Команда&nbsp;<span
+                      class="review-card__arrow"
+                      aria-hidden="true"
+                      >&gt;</span
+                    >
+                  </span>
+                  <div class="review-card__text">
+                    Ми звикли брати на себе відповідальність та завжди
+                    гарантуємо чесну, вчасну допомогу, навіть у ситуаціях, коли
+                    більшість безсилі.
+                  </div>
+                  <div class="review-card__meta">
+                    <span class="review-card__author-name">Сергій Бінн</span>
+                    <span class="review-card__author-role"
+                      >Асоційований партнер</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-pagination reviews-block__pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="brands-section">
+        <div class="container-medium">
+          <h3 class="brands-section__subtitle">They already trust us</h3>
+
+          <div class="brands-grid">
+            <a href="#" class="brand-item brand-item--hillel">
+              <img
+                src="./images/home/1-Hillel-Logo-OneLine-White-Uk.svg"
+                alt="Hillel"
+                class="brand-item__logo"
+              />
+            </a>
+            <a href="#" class="brand-item brand-item--wannabiz">
+              <img
+                src="./images/home/2-image.svg"
+                alt="WannaBiz"
+                class="brand-item__logo"
+              />
+            </a>
+            <a href="#" class="brand-item brand-item--tapgerine">
+              <img
+                src="./images/home/3-logo1.svg"
+                alt="Tapgerine"
+                class="brand-item__logo"
+              />
+            </a>
+            <a href="#" class="brand-item brand-item--3dlook">
+              <img
+                src="./images/home/4-retina_2.svg"
+                alt="3D Look"
+                class="brand-item__logo"
+              />
+            </a>
+
+            <a href="#" class="brand-item brand-item--orangear">
+              <img
+                src="./images/home/5-Frame6.svg"
+                alt="Orangear"
+                class="brand-item__logo"
+              />
+            </a>
+            <a href="#" class="brand-item brand-item--adtelligent">
+              <img
+                src="./images/home/6-Frame7.svg"
+                alt="Adtelligent"
+                class="brand-item__logo"
+              />
+            </a>
+            <a href="#" class="brand-item brand-item--clickky">
+              <img
+                src="./images/home/7-logo2.svg"
+                alt="Clickky"
+                class="brand-item__logo"
+              />
+            </a>
+            <a href="#" class="brand-item brand-item--ecoleasing">
+              <img
+                src="./images/home/8-ecolease.svg"
+                alt="Eco Leasing"
+                class="brand-item__logo"
+              />
+            </a>
+
+            <a href="#" class="brand-item brand-item--infratek">
+              <img
+                src="./images/home/9-image.svg"
+                alt="InfraTek"
+                class="brand-item__logo"
+              />
+            </a>
+            <a href="#" class="brand-item brand-item--citypark">
+              <img
+                src="./images/home/10-icon-logo1.svg"
+                alt="Сити Парк"
+                class="brand-item__logo"
+              />
+            </a>
+            <a href="#" class="brand-item brand-item--artprint">
+              <img
+                src="./images/home/11-logo.svg"
+                alt="Art-Print Studio"
+                class="brand-item__logo"
+              />
+            </a>
+            <a href="#" class="brand-item brand-item--ultimate">
+              <img
+                src="./images/home/12-logoM.svg"
+                alt="Ultimate Card"
+                class="brand-item__logo"
+              />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="publications-section" id="publications">
+        <div class="container-medium">
+          <a href="#" class="publications-section__subtitle"
+            >Publications&nbsp;&gt;</a
+          >
+          <h2 class="publications-section__title">We have something to tell</h2>
+
+          <div class="publications-grid">
+            <article class="news-card">
+              <div class="news-card__image-box">
+                <img
+                  src="./images/home/1-Cover.png"
+                  alt="Equity associate"
+                  class="news-card__img"
+                />
+              </div>
+              <div class="news-card__content">
+                <h3 class="news-card__title">
+                  <a href="#">Equity associate</a>
+                </h3>
+                <span class="news-card__date">April 22</span>
+                <p class="news-card__text">
+                  I'm a jun on projects. I am a co-owner of a law firm. How it
+                  happened. Before entering my parents told me that if I...
+                </p>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card__image-box">
+                <img
+                  src="./images/home/2-Cover.png"
+                  alt="GDPR Penalty"
+                  class="news-card__img"
+                />
+              </div>
+              <div class="news-card__content">
+                <h3 class="news-card__title">
+                  <a href="#"
+                    >Penalty for the Good Corporation: what will happen to
+                    Google and others for violating the GDPR</a
+                  >
+                </h3>
+                <span class="news-card__date">September 29</span>
+                <p class="news-card__text">
+                  And why the recovery of 50 million euros could be a fateful
+                  precedent. According to Mind.ua January 21 National Commission
+                  for Data Protection.
+                </p>
+              </div>
+            </article>
+
+            <article class="news-card">
+              <div class="news-card__image-box">
+                <img
+                  src="./images/home/3-Cover.png"
+                  alt="Millennial Testament"
+                  class="news-card__img"
+                />
+              </div>
+              <div class="news-card__content">
+                <h3 class="news-card__title">
+                  <a href="#">Millennial Testament</a>
+                </h3>
+                <span class="news-card__date">August 19</span>
+                <p class="news-card__text">
+                  What and how modern vloggers, opinion leaders and
+                  crypto-millionaires will inherit. A typical legacy of the
+                  Ukrainian generation X looks like this: an apartment in...
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="footer__top">
+        <div class="footer__info">
+          <div class="footer__address">
+            <a
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__address-link"
+            >
+              Kyiv, Mechnikova str, 14/1
+            </a>
+            <a
+              href="https://google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="footer__map-link"
+            >
+              ON MAP
+            </a>
+          </div>
+
+          <div class="footer__contacts">
+            <a
+              href="https://facebook.com"
+              class="header-contacts__fb"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="./images/about/Facebook-Footer.png"
+                alt="Facebook"
+                class="header-contacts__fb-icon"
+              />
+              <img
+                src="./images/about/Facebook-Hover.png"
+                alt="Facebook Hover"
+                class="header-contacts__fb-icon-hover"
+              />
+            </a>
+
+            <a href="tel:0800211927" class="footer__phone">0800 211 927</a>
+
+            <a href="mailto:contact@forstudy.space" class="footer__email">
+              contact@forstudy.space
+            </a>
+          </div>
+        </div>
+
+        <p class="footer__copyright">
+          © <span id="currentYear">2026</span> HLEGAL LAW COMPANY
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="./js/services-tabs.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/home.js"></script>
+    <script src="js/lang-switcher.js"></script>
+  </body>
+</html>

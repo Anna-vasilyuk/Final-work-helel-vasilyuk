@@ -1,297 +1,254 @@
 @use "global";
 
 /* =========================================================
-   LAYOUT CONTAINERS (Контейнери обмежувачі)
+   LAYOUT CONTAINERS
    ========================================================= */
-
-// Базовий загальний клас для уникнення дублювання коду
 %container-shared {
   width: 100%;
   margin: 0 auto;
+  padding: 0 15px;
 }
 
-// Контейнер для широкоформатних секцій (наприклад, банери)
 .container {
   @extend %container-shared;
-  max-width: 1440px;
+  max-width: 1920px;
 }
 
-// Контейнер для контентних секцій (зручна ширина для читання)
-.container-small {
+.container-medium {
   @extend %container-shared;
-  max-width: 1320px;
+  max-width: 1600px;
 }
 
-/* =========================================================
-   PAGE HEADER (Шапка сторінки)
-   ========================================================= */
+@media (max-width: 375px) {
+  .page-header {
+    width: 100%;
 
-.page-header {
-  width: 100%;
-  padding: 50px 60px;
-  // Двоколонкова сітка: логотип зліва, технічна частина та меню справа
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 20px;
-
-  // Блок логотипу (іконки + текст в один ряд)
-  &__logo {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    align-items: center;
-    column-gap: 4px;
-
-    &-link {
-      display: grid;
-
-      // Мікро-вирівнювання другого елемента логотипу по вертикалі
-      &-second {
-        display: grid;
-        transform: translateY(-5px);
-      }
+    &__logo {
+      width: 100%;
+      display: flex;
+      align-items: center;
     }
 
-    // Текстова назва компанії/бренду в логотипі
-    &-title {
-      font-weight: 400;
-      font-size: 36px;
-      line-height: 1;
-      color: global.$main-text-color;
-      transform: translateY(-6px); // Візуальна компенсація шрифтового падінгу
-    }
-  }
+    .header-nav {
+      position: fixed;
+      inset: 0;
 
-  // Права частина хедера (містить перемикач мов, контакти та навігацію)
-  &__right {
-    display: grid;
-    grid-template-rows: auto auto; // Два ряди: мета-дані зверху, меню знизу
-    justify-items: end; // Притискає весь контент до правого краю
-    gap: 15px;
-  }
+      width: 100%;
+      height: 100vh;
 
-  // Ряд із технічною інформацією (мови + контакти)
-  &__meta {
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 18px;
-    align-items: center;
-  }
-}
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-/* =========================================================
-   LANGUAGE SWITCHER (Перемикач мов)
-   ========================================================= */
+      background-color: rgba(global.$main-text-color, 0.8);
 
-.lang-switcher {
-  display: grid;
-  grid-template-columns: repeat(3, auto); // Три кнопки (UA, EN, FR) в один ряд
-  gap: 5px;
+      z-index: 999;
 
-  // Індивідуальна кнопка мови
-  &__btn {
-    padding: 5px 7px;
-    font-weight: 700;
-    font-size: 12px;
-    letter-spacing: 1px;
-    color: global.$secondary-text-color;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    transition:
-      color 0.3s ease,
-      background-color 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
 
-    // Стан ховеру: підсвічування фону акцентним кольором
-    // Модифікатор для відображення активної наразі мови
-    &:hover,
-    &--active {
-      color: global.$white-color;
-      background-color: global.$accent-color;
-      border-radius: 8px;
-    }
+      transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
 
-    // Забезпечення доступності сайту (A11y) при навігації клавіатурою (Tab)
-    &:focus-visible {
-      outline: 2px solid global.$accent-color;
-      outline-offset: 2px;
-      border-radius: 8px;
-    }
-  }
-}
+      &__list {
+        width: calc(100% - 30px);
+        max-width: 345px;
 
-/* =========================================================
-   HEADER CONTACTS (Контакти в шапці)
-   ========================================================= */
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
 
-.header-contacts {
-  display: grid;
-  grid-template-columns: repeat(3, auto); // Адреса, телефон, іконка соцмережі
-  gap: 18px;
-  align-items: center;
+        background-color: global.$white-color;
 
-  // Фізична адреса
-  &__address {
-    font-weight: 400;
-    font-size: 16px;
-    text-align: right;
-    color: global.$secondary-text-color;
-  }
+        padding: 30px 15px;
 
-  // Клікабельний номер телефону
-  &__phone {
-    font-weight: 700;
-    font-size: 16px;
-    text-align: right;
-    color: global.$secondary-text-color;
-    text-decoration: none;
-  }
+        border-radius: 20px;
 
-  // Посилання на Facebook з ефектом зміни іконки
-  &__fb {
-    display: grid;
-    place-items: center;
-
-    // Плавне збільшення
-    transition: transform 0.2s ease;
-
-    // Дефолтна іконка
-    &-icon {
-      display: block;
-
-      // Ховер іконка
-      &-hover {
-        display: none;
-      }
-    }
-
-    // При наведенні
-    &:hover {
-      // Збільшуємо всю іконку
-      transform: scale(1.1);
-
-      // Ховаємо синю
-      .header-contacts__fb-icon {
-        display: none;
+        transform: translateY(100%);
+        transition: transform 0.4s ease;
       }
 
-      // Показуємо червону
-      .header-contacts__fb-icon-hover {
+      &__item {
+        width: 100%;
+      }
+
+      &__link {
         display: block;
+        width: 100%;
+
+        padding: 15px;
+
+        text-align: center;
+
+        font-weight: 700;
+        font-size: 16px;
+
+        color: global.$blue-color;
+        background-color: global.$grey-bg;
+
+        border-radius: 12px;
+
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
+
+        &:hover {
+          background-color: rgba(36, 163, 255, 0.1);
+        }
+
+        &--active {
+          color: global.$accent-color;
+        }
+      }
+    }
+  }
+
+  .burger {
+    display: block;
+    margin-left: auto;
+
+    &__button {
+      position: relative;
+      width: 30px;
+      height: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+
+      z-index: 1001;
+
+      span {
+        position: absolute;
+        width: 100%;
+        height: 2px;
+
+        background-color: global.$white-color;
+
+        transition:
+          transform 0.3s ease,
+          background-color 0.3s ease,
+          opacity 0.3s ease;
+
+        &:nth-child(1) {
+          transform: translateY(-7px);
+        }
+
+        &:nth-child(2) {
+          transform: translateY(0);
+        }
+
+        &:nth-child(3) {
+          transform: translateY(7px);
+        }
+      }
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  // Відкриваємо меню при натисканні на бургер
+  .page-header:has(#burger-checkbox:checked) {
+    .header-nav {
+      opacity: 1;
+      visibility: visible;
+
+      .header-nav__list {
+        transform: translateY(0);
+      }
+    }
+
+    .burger__button {
+      span {
+        background-color: global.$accent-color;
+
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
       }
     }
   }
 }
 
 /* =========================================================
-   HEADER NAVIGATION (Головне меню сайту)
-   ========================================================= */
-
-.header-nav {
-  display: grid;
-  grid-template-columns: repeat(
-    5,
-    auto
-  ); // П'ять пунктів меню в ряд (Accueil, À propos тощо)
-  gap: 15px;
-  justify-content: end; // Зміщення меню вправо
-  align-items: center;
-
-  // Посилання в меню з ефектом підкреслення знизу
-  &__link {
-    font-weight: 700;
-    font-size: 16px;
-    color: global.$blue-color;
-    text-decoration: none;
-    border-bottom: 3px solid transparent; // Резервує місце під лінію, щоб уникнути стрибків тексту
-    transition:
-      color 0.3s ease,
-      border-color 0.3s ease;
-
-    // Плавна зміна кольору тексту та підкреслення при ховері
-    &:hover {
-      color: global.$accent-color;
-      border-bottom-color: global.$accent-color;
-    }
-  }
-}
-/* =========================================================
-   ABOUT SECTION (Секція "Про нас")
+   ABOUT SECTION
    ========================================================= */
 
 .about {
   width: 100%;
-  padding: 60px 0;
+  padding: 30px 0;
 
-  // Двоколонкова структура контенту: текст ліворуч, статистика праворуч
-  .container-small {
+  .container-medium {
     display: grid;
     grid-template-columns: 6fr 3fr;
     gap: 30px;
     align-items: start;
   }
 
-  // Текстовий блок (заголовок + опис)
   &__content {
     display: grid;
     gap: 28px;
   }
 
-  // Заголовок із сучасним градієнтним текстом
   &__title {
-    margin: 0;
-    padding: 0;
     font-weight: 700;
     font-size: 38px;
     line-height: 1;
+    margin-top: 100px;
     background: global.$gradient-red-text;
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; // Робить колір шрифту прозорим, щоб проявити градієнт
+    -webkit-text-fill-color: transparent;
   }
 
-  // Основний опис секції
   &__text {
-    margin: 0;
-    padding: 0;
     font-weight: 400;
     font-size: 19px;
     line-height: 1.8;
-    text-align: left;
+
     color: global.$black-color;
   }
 
-  // Права колонка зі списком статистичних карток
   &__statistics {
     display: grid;
     gap: 40px;
+    border-left: 4px solid #e6e6f0;
+    padding-left: 60px;
   }
 
-  // Окрема картка показника (наприклад: "10 років")
   &__stat {
     display: grid;
     gap: 10px;
 
-    // Цифровий показник
     &-number {
-      display: grid;
-      grid-template-columns: auto auto;
+      display: flex;
       align-items: center;
-      justify-content: start;
-      column-gap: 8px;
-      margin: 0;
-      padding: 0;
+      gap: 8px;
+
       font-weight: 700;
       font-size: 36px;
       line-height: 1.5;
+
       background: global.$gradient-red-text;
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
 
-      // Декоративне зображення всередині цифри з анімацією похитування
       img {
         display: block;
-        will-change: transform; // Оптимізація під анімацію shake
 
         &:hover {
           animation: shake 0.4s ease-in-out;
@@ -300,191 +257,370 @@
       }
     }
 
-    // Підпис до цифрового показника
     &-text {
-      margin: 0;
-      padding: 0;
       font-weight: 400;
       font-size: 16px;
       line-height: 1;
+
       color: global.$main-text-color;
     }
   }
-} /* =========================================================
-   TEAM PHOTO SECTION (Банер командного фото)
+}
+@media (max-width: 1440px) {
+  .about {
+    .container-medium {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    &__statistics {
+      padding-left: 20px;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .about {
+    .container-medium {
+      max-width: 904px;
+      margin: 0 auto;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .about {
+    .container-medium {
+      max-width: 648px;
+      margin: 0 auto;
+
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    &__content {
+      gap: 28px;
+    }
+
+    &__statistics {
+      gap: 40px;
+      padding-left: 30px;
+      border-left: 4px solid #e6e6f0;
+    }
+  }
+}
+@media (max-width: 375px) {
+  .about {
+    padding: 10px 5px;
+
+    .container-medium {
+      max-width: 315px;
+      margin: 0 auto;
+
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    &__statistics {
+      padding-left: 30px;
+      gap: 30px;
+    }
+  }
+}
+/* =========================================================
+   TEAM PHOTO SECTION
    ========================================================= */
 
 .team-photo {
   width: 100%;
-  position: relative; // Батьківський контейнер для абсолютного позиціонування тексту
+  position: relative;
   display: grid;
 
-  // Адаптивне фонове зображення
   &__image {
     width: 100%;
-    height: auto;
+
     display: block;
     object-fit: cover;
   }
 
-  // Великий декоративний текст поверх фотографії
   &__title {
-    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(
-      -50%,
-      -50%
-    ); // Ідеальне центрування по центру фотографії
+
+    transform: translate(-50%, -50%);
+
     font-weight: 700;
     font-size: 96px;
     line-height: 1;
+
     text-align: center;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
-    text-shadow: 0 15px 30px rgba(40, 40, 86, 0.8); // Тінь для забезпечення читабельності
 
-    // Виправлення трекінгу: компенсуємо правий відступ останньої літери від letter-spacing
+    color: global.$white-transparent;
+
+    text-shadow: 0 15px 30px rgba(40, 40, 86, 0.8);
+
     letter-spacing: 63px;
     margin-right: -63px;
+
     transition: color 0.3s ease;
 
     &:hover {
-      color: rgba(255, 255, 255, 1);
+      color: global.$white-color;
+    }
+  }
+}
+@media (max-width: 1440px) {
+  .team-photo {
+    width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .team-photo {
+    &__title {
+      font-size: 86px;
+
+      letter-spacing: 40px;
+      margin-right: -40px;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .team-photo {
+    &__title {
+      font-size: 46px;
+
+      letter-spacing: 60px;
+      margin-right: -30px;
+    }
+  }
+}
+@media (max-width: 375px) {
+  .team-photo {
+    &__title {
+      font-size: 36px;
+      letter-spacing: 15px;
+      margin-right: -15px;
     }
   }
 }
 
 /* =========================================================
-   QUALITY SECTION (Секція якості/переваг)
+   QUALITY SECTION
    ========================================================= */
 
 .quality {
   width: 100%;
   padding: 60px 0;
 
-  // Симетрична двоколонкова сітка 50/50
-  .container-small {
+  .container-medium {
     display: grid;
     grid-template-columns: 6fr 3fr;
     gap: 30px;
   }
 
-  // Внутрішній контент колонки
   &__content {
     display: grid;
     gap: 28px;
   }
 
-  // Градієнтний заголовок переваги
   &__title {
-    margin: 0;
-    padding: 0;
     font-weight: 700;
     font-size: 38px;
     line-height: 1;
+
     background: global.$gradient-red-text;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  // Текст опису переваги
   &__text {
-    margin: 0;
-    padding: 0;
     font-weight: 400;
     font-size: 19px;
-    line-height: 30px;
+    line-height: 1.5;
+
     color: global.$black-color;
   }
 }
+@media (max-width: 1440px) {
+  .quality {
+    .container-medium {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .quality {
+    .container-medium {
+      max-width: 904px;
+      margin: 0 auto;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .quality {
+    .container-medium {
+      max-width: 648px;
+      margin: 0 auto;
 
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__title {
+      order: 2;
+    }
+
+    &__text {
+      order: 1;
+    }
+  }
+}
+@media (max-width: 375px) {
+  .quality {
+    padding: 10px 15px;
+  }
+}
 /* =========================================================
-   ANIMATIONS & RESPONSIVE BREAKPOINTS (Анімації та адаптив)
+   ANIMATIONS
    ========================================================= */
 
-// Ефект похитування (використовується для міні-іконок при ховері)
 @keyframes shake {
   0% {
     transform: translateX(0) rotate(0);
   }
+
   25% {
     transform: translateX(-3px) rotate(-2deg);
   }
+
   50% {
     transform: translateX(3px) rotate(2deg);
   }
+
   75% {
     transform: translateX(-2px) rotate(-1deg);
   }
+
   100% {
     transform: translateX(0) rotate(0);
   }
 }
 
 /* =========================================================
-   TEAM SLIDER (КАРТКИ В РЯДОК + ЗАГОЛОВОК ЗВЕРХУ)
+   TEAM SLIDER
    ========================================================= */
-
 .team-slider {
+  box-sizing: border-box;
+
   width: 100%;
   padding: 33px 60px;
+
   background-color: global.$grey-bg;
 
-  .container-small {
+  .container-medium {
+    box-sizing: border-box;
+
     width: 100%;
-    max-width: 1440px;
     margin: 0 auto;
+
     border-bottom: 2px solid global.$separator-color;
+
     display: flex;
     flex-direction: column;
-    gap: 30px; // Відступ між заголовком H3 та самим слайдером Swiper
+    gap: 30px;
   }
 
-  /* ---------- ЗАГОЛОВОК H3 НА СІРОМУ ФОНІ ---------- */
   &__title {
-    margin: 0;
-    padding: 0;
     text-align: center;
     text-transform: uppercase;
+
     font-weight: 700;
     font-size: 14px;
     line-height: 1;
+
     color: global.$main-text-color;
   }
 
   .swiper {
     width: 100%;
-    padding-bottom: 50px; // Відступ знизу для крапочок пагінації
+    padding-bottom: 60px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+
+    background-color: global.$blue-color;
+    opacity: 0.3;
+
+    margin: 0 6px;
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+
+    &:hover {
+      opacity: 0.6;
+      transform: scale(1.2);
+    }
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.4);
+
+    background-color: global.$blue-color;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.4);
+    }
   }
 }
 
-/* ---------- ПРЯМОКУТНИК З КАРТИНКОЮ 300х100 ---------- */
+/* =========================================================
+   TEAM SLIDE
+   ========================================================= */
+
 .team-slide {
-  display: grid !important;
+  box-sizing: border-box;
+
+  width: 370px !important;
+  height: 110px !important;
+
+  display: grid;
   place-items: center;
-  padding: 25px 50px;
+
+  padding: 25px 70px;
+
   border-radius: 12px;
   overflow: hidden;
+
   background-color: global.$white-color;
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
   transition:
     transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    // Еластична крива для висування
     box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-6px) scale(1.03);
+
     box-shadow: 0 10px 20px rgba(40, 40, 86, 0.12);
   }
 
   &__img {
     width: auto;
     height: auto;
+
     display: block;
+
     object-fit: contain;
   }
 
@@ -492,147 +628,76 @@
   transform: translateZ(0);
 }
 
-/* ---------- КРАПОЧКИ ПАГІНАЦІЇ ---------- */
-.team-slider {
-  .swiper-pagination-bullet {
-    width: 12px;
-    height: 12px;
-    background-color: global.$blue-color;
-    opacity: 0.3;
-    margin: 0 6px !important;
-    transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
-
-    &:hover {
-      opacity: 0.6;
-      transform: scale(1.2); // Крапочка плавно збільшується при наведенні мишки
-    }
-  }
-
-  .swiper-pagination-bullet-active {
-    opacity: 1;
-    transform: scale(
-      1.4
-    ); // Активна крапочка трохи більша за стан звичайного ховеру
-    background-color: global.$blue-color;
-
-    &:hover {
-      opacity: 1;
-      transform: scale(1.4); // Фіксація масштабу активної крапки при наведенні
-    }
-  }
-}
 /* =========================================================
-   FOOTER SECTION
+   1440px
    ========================================================= */
 
-.footer {
-  width: 100%;
-  padding: 30px 60px; // 60px по боках вирівнюють контент в одну лінію з шапкою
-  background-color: global.$grey-bg;
-
-  &__top {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 30px;
-    align-items: start;
-  }
-
-  &__info {
-    display: grid;
-    gap: 20px;
-  }
-
-  &__address {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    align-items: center;
-    justify-content: start;
-
-    &-link {
-      font-size: 16px;
-      font-weight: 400;
-      color: global.$main-text-color;
-      text-decoration: none;
+@media (max-width: 1440px) {
+  .team-slider {
+    .container-medium {
+      max-width: 1200px;
     }
   }
 
-  &__map-link {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    color: global.$blue-color;
-    text-decoration: none;
+  .team-slide {
+    width: 300px !important;
+    height: 110px !important;
+    padding: 25px 70px;
   }
+}
 
-  &__contacts {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    gap: 20px;
-    align-items: center;
-    justify-content: start;
+/* =========================================================
+   1024px
+   ========================================================= */
 
-    .header-contacts__fb {
-      width: 24px;
-      height: 24px;
-      transition: transform 0.2s ease;
-
-      img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        object-fit: contain;
-      }
-
-      // Червону картинку ховаємо у звичайному стані
-      .header-contacts__fb-icon-hover {
-        display: none;
-      }
-
-      // При наведенні
-      &:hover {
-        transform: scale(1.1);
-
-        // Ховаємо синю
-        .header-contacts__fb-icon {
-          display: none;
-        }
-
-        // Показуємо червону
-        .header-contacts__fb-icon-hover {
-          display: block;
-        }
-      }
+@media (max-width: 1024px) {
+  .team-slider {
+    .container-medium {
+      max-width: 904px;
     }
   }
 
-  &__phone {
-    font-size: 16px;
-    font-weight: 700;
-    color: global.$main-text-color;
-    text-decoration: none;
-    transition: color 0.3s ease; // Додано для плавності
+  .team-slide {
+    width: 196px !important;
+    height: 110px !important;
+    padding: 25px 10px;
   }
+}
 
-  &__email {
-    font-size: 16px;
-    font-weight: 700;
-    color: global.$blue-color;
-    text-decoration: none;
-    transition: color 0.3s ease; // Додано для м'якого перетікання кольору
+/* =========================================================
+   768px
+   ========================================================= */
 
-    &:hover {
-      color: global.$accent-color; // Плавна зміна кольору на фірмовий рожево-червоний
+@media (max-width: 768px) {
+  .team-slider {
+    .container-medium {
+      max-width: 600px;
     }
   }
 
-  &__copyright {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 400;
-    color: global.$secondary-text-color;
-    text-align: right;
+  .team-slide {
+    width: 90px !important;
+    height: 100px !important;
+    padding: 25px 20px;
+  }
+}
+
+/* =========================================================
+   375px
+   ========================================================= */
+
+@media (max-width: 375px) {
+  .team-slider {
+    padding: 33px 15px;
+
+    .container-medium {
+      max-width: 315px;
+    }
+  }
+
+  .team-slide {
+    width: 100% !important;
+    height: 90px !important;
+    padding: 15px;
   }
 }

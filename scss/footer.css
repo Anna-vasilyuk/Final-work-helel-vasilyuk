@@ -1,0 +1,269 @@
+@charset "UTF-8";
+/* =========================================================
+КОЛІРНІ ЗМІННІ 
+   ========================================================= */
+/* =========================================================
+   ЛОКАЛЬНЕ ПІДКЛЮЧЕННЯ ШРИФТІВ
+   ========================================================= */
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-Bold.woff2") format("woff2"), url("../fonts/Montserrat-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* =========================================================
+ GLOBAL BASE SETTINGS 
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #ffffff;
+  background-color: #ffffff;
+  min-height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* =========================================================
+   PAGE FOOTER 
+   ========================================================= */
+.footer {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 30px 30px;
+  background-color: #f5f5fa;
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 30px;
+  align-items: start;
+}
+.footer__info {
+  display: grid;
+  gap: 20px;
+}
+.footer {
+  /* =========================================================
+     ADDRESS
+     ========================================================= */
+}
+.footer__address {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 25px;
+  align-items: center;
+  justify-content: start;
+}
+.footer__address-link {
+  font-size: 16px;
+  font-weight: 400;
+  color: #323264;
+}
+.footer {
+  /* =========================================================
+     MAP LINK
+     ========================================================= */
+}
+.footer__map-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: #24a3ff;
+}
+.footer {
+  /* =========================================================
+     CONTACTS
+     ========================================================= */
+}
+.footer__contacts {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 25px;
+  align-items: center;
+  justify-content: start;
+}
+.footer__contacts .header-contacts__fb {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+.footer__contacts .header-contacts__fb img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.footer__contacts .header-contacts__fb .header-contacts__fb-icon-hover {
+  display: none;
+}
+.footer__contacts .header-contacts__fb:hover {
+  transform: scale(1.1);
+}
+.footer__contacts .header-contacts__fb:hover .header-contacts__fb-icon {
+  display: none;
+}
+.footer__contacts .header-contacts__fb:hover .header-contacts__fb-icon-hover {
+  display: block;
+}
+.footer {
+  /* =========================================================
+     PHONE
+     ========================================================= */
+}
+.footer__phone {
+  font-size: 16px;
+  font-weight: 700;
+  color: #323264;
+  transition: color 0.3s ease;
+}
+.footer__phone:hover {
+  color: #f0145a;
+}
+.footer {
+  /* =========================================================
+     EMAIL
+     ========================================================= */
+}
+.footer__email {
+  font-size: 16px;
+  font-weight: 700;
+  color: #24a3ff;
+  transition: color 0.3s ease;
+}
+.footer__email:hover {
+  color: #f0145a;
+}
+.footer {
+  /* =========================================================
+     COPYRIGHT
+     ========================================================= */
+}
+.footer__copyright {
+  font-size: 16px;
+  font-weight: 400;
+  color: #b3b3ba;
+  text-align: right;
+}
+
+@media (max-width: 1440px) {
+  .footer {
+    max-width: 1440px;
+    padding: 10px 60px;
+  }
+}
+@media (max-width: 1024px) {
+  .footer {
+    max-width: 1024px;
+    padding: 50px 10px;
+  }
+}
+@media (max-width: 768px) {
+  .footer {
+    max-width: 768px;
+    padding: 10px 60px;
+  }
+  .footer__top {
+    max-width: 400px;
+    margin: 0 auto;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: start;
+  }
+  .footer__info {
+    justify-items: start;
+  }
+  .footer__address {
+    justify-content: start;
+    text-align: left;
+  }
+  .footer__contacts {
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+    justify-items: start;
+    gap: 25px;
+  }
+  .footer__copyright {
+    text-align: left;
+  }
+}
+@media (max-width: 375px) {
+  .footer {
+    max-width: 375px;
+    padding: 30px 15px;
+  }
+  .footer__top {
+    width: 315px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    justify-items: center;
+  }
+  .footer__info {
+    width: 100%;
+    gap: 20px;
+    justify-items: center;
+  }
+  .footer__address {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    justify-items: center;
+    text-align: center;
+  }
+  .footer__contacts {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    justify-items: center;
+  }
+  .footer__copyright {
+    width: 100%;
+    text-align: center;
+  }
+}/*# sourceMappingURL=footer.css.map */

@@ -1,0 +1,220 @@
+@use "global";
+
+/* =========================================================
+   PAGE FOOTER 
+   ========================================================= */
+
+.footer {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 30px 30px;
+  background-color: global.$grey-bg;
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 30px;
+    align-items: start;
+  }
+
+  &__info {
+    display: grid;
+    gap: 20px;
+  }
+
+  /* =========================================================
+     ADDRESS
+     ========================================================= */
+
+  &__address {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 25px;
+    align-items: center;
+    justify-content: start;
+
+    &-link {
+      font-size: 16px;
+      font-weight: 400;
+      color: global.$main-text-color;
+    }
+  }
+
+  /* =========================================================
+     MAP LINK
+     ========================================================= */
+
+  &__map-link {
+    font-size: 12px;
+    font-weight: 700;
+    color: global.$blue-color;
+  }
+
+  /* =========================================================
+     CONTACTS
+     ========================================================= */
+
+  &__contacts {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    gap: 25px;
+    align-items: center;
+    justify-content: start;
+
+    .header-contacts__fb {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      transition: transform 0.2s ease;
+
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: contain;
+      }
+
+      .header-contacts__fb-icon-hover {
+        display: none;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+
+        .header-contacts__fb-icon {
+          display: none;
+        }
+
+        .header-contacts__fb-icon-hover {
+          display: block;
+        }
+      }
+    }
+  }
+
+  /* =========================================================
+     PHONE
+     ========================================================= */
+
+  &__phone {
+    font-size: 16px;
+    font-weight: 700;
+    color: global.$main-text-color;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: global.$accent-color;
+    }
+  }
+
+  /* =========================================================
+     EMAIL
+     ========================================================= */
+
+  &__email {
+    font-size: 16px;
+    font-weight: 700;
+    color: global.$blue-color;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: global.$accent-color;
+    }
+  }
+
+  /* =========================================================
+     COPYRIGHT
+     ========================================================= */
+
+  &__copyright {
+    font-size: 16px;
+    font-weight: 400;
+    color: global.$secondary-text-color;
+    text-align: right;
+  }
+}
+@media (max-width: 1440px) {
+  .footer {
+    max-width: 1440px;
+    padding: 10px 60px;
+  }
+}
+@media (max-width: 1024px) {
+  .footer {
+    max-width: 1024px;
+    padding: 50px 10px;
+  }
+}
+@media (max-width: 768px) {
+  .footer {
+    max-width: 768px;
+    padding: 10px 60px;
+    &__top {
+      max-width: 400px;
+      margin: 0 auto;
+
+      grid-template-columns: 1fr;
+      gap: 20px;
+      justify-items: start;
+    }
+    &__info {
+      justify-items: start;
+    }
+    &__address {
+      justify-content: start;
+      text-align: left;
+    }
+    &__contacts {
+      grid-template-columns: repeat(3, auto);
+      justify-content: start;
+      justify-items: start;
+      gap: 25px;
+    }
+    &__copyright {
+      text-align: left;
+    }
+  }
+}
+@media (max-width: 375px) {
+  .footer {
+    max-width: 375px;
+    padding: 30px 15px;
+
+    &__top {
+      width: 315px;
+      max-width: 100%;
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+
+      justify-items: center;
+    }
+
+    &__info {
+      width: 100%;
+      gap: 20px;
+      justify-items: center;
+    }
+    &__address {
+      width: 100%;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      justify-items: center;
+      text-align: center;
+    }
+    &__contacts {
+      width: 100%;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      justify-items: center;
+    }
+    &__copyright {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

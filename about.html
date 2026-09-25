@@ -1,46 +1,69 @@
 <!doctype html>
-<html lang="uk">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us | hlegal</title>
-    <!-- Підключення вашого скомпільованого CSS файлу -->
     <link rel="stylesheet" href="scss/about.css" />
+    <link rel="stylesheet" href="scss/header.css" />
+    <link rel="stylesheet" href="scss/footer.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
   </head>
+
   <body>
-    <!-- ГОЛОВНИЙ КОНТЕЙНЕР СТОРІНКИ (1440px) -->
     <div class="container">
-      <!-- =========================================================
-           HEADER
-           ========================================================= -->
       <header class="page-header">
-        <!-- ЛОГОТИП -->
         <div class="page-header__logo">
           <a href="index.html" class="page-header__logo-link">
-            <img src="./images/about/Logo.png" alt="hlegal logo" />
+            <img
+              src="./images/about/Logo.png"
+              alt="hlegal logo"
+              class="page-header__logo-img"
+            />
           </a>
+
           <a href="index.html" class="page-header__logo-link-second">
             <img src="./images/about/Slash.png" alt="slash spacer" />
           </a>
+
           <span class="page-header__logo-title">about us</span>
+
+          <!-- Бургер меню -->
+          <div class="burger">
+            <input type="checkbox" id="burger-checkbox" />
+
+            <label class="burger__button" for="burger-checkbox">
+              <span></span>
+              <span></span>
+              <span></span>
+            </label>
+          </div>
         </div>
 
-        <!-- ПРАВА ЧАСТИНА (МЕТА + НАВІГАЦІЯ) -->
         <div class="page-header__right">
-          <!-- МОВИ + КОНТАКТИ -->
           <div class="page-header__meta">
-            <!-- ПЕРЕМИКАЧ МОВ -->
-            <div class="lang-switcher">
-              <button type="button" class="lang-switcher__btn">УК</button>
-              <button type="button" class="lang-switcher__btn">FR</button>
-              <button type="button" class="lang-switcher__btn">EN</button>
-            </div>
+            <ul class="lang-switcher">
+              <li class="lang-switcher__item">
+                <button type="button" class="lang-switcher__btn">УК</button>
+              </li>
 
-            <!-- КОНТАКТИ -->
+              <li class="lang-switcher__item">
+                <button type="button" class="lang-switcher__btn">FR</button>
+              </li>
+
+              <li class="lang-switcher__item">
+                <button
+                  type="button"
+                  class="lang-switcher__btn lang-switcher__btn--active"
+                >
+                  EN
+                </button>
+              </li>
+            </ul>
+
             <div class="header-contacts">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=Kyiv%2C+Mechnikova+str%2C+14%2F1"
@@ -54,17 +77,19 @@
               <a href="tel:0800211927" class="header-contacts__phone">
                 0800 211 927
               </a>
+
               <a
                 href="https://facebook.com"
                 class="header-contacts__fb"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <img
                   src="./images/about/Facebook.png"
                   alt="Facebook"
                   class="header-contacts__fb-icon"
                 />
+
                 <img
                   src="./images/about/Facebook-Hover.png"
                   alt="Facebook Hover"
@@ -73,28 +98,36 @@
               </a>
             </div>
           </div>
-
-          <!-- НАВІГАЦІЯ -->
           <nav class="header-nav">
-            <a href="about.html" class="header-nav__link">about us</a>
-            <a href="services.html" class="header-nav__link">services</a>
-            <a href="team.html" class="header-nav__link">team</a>
-            <a href="publications.html" class="header-nav__link"
-              >publications</a
-            >
-            <a href="contacts.html" class="header-nav__link">contact</a>
+            <ul class="header-nav__list">
+              <li class="header-nav__item">
+                <a href="about.html" class="header-nav__link"> about us </a>
+              </li>
+
+              <li class="header-nav__item">
+                <a href="services.html" class="header-nav__link"> services </a>
+              </li>
+
+              <li class="header-nav__item">
+                <a href="team.html" class="header-nav__link"> team </a>
+              </li>
+
+              <li class="header-nav__item">
+                <a href="publications.html" class="header-nav__link">
+                  publications
+                </a>
+              </li>
+
+              <li class="header-nav__item">
+                <a href="contacts.html" class="header-nav__link"> contact </a>
+              </li>
+            </ul>
           </nav>
         </div>
       </header>
-
-      <!-- =========================================================
-           MAIN CONTENT
-           ========================================================= -->
       <main>
-        <!-- СЕКЦІЯ ABOUT (Контейнер 1080px) -->
         <section class="about">
-          <div class="container-small">
-            <!-- Ліва частина з текстом -->
+          <div class="container-medium">
             <div class="about__content">
               <h1 class="about__title">
                 We turn over the idea of legal services
@@ -115,7 +148,6 @@
             </div>
 
             <div class="about__statistics">
-              <!-- 10+ -->
               <div class="about__stat">
                 <div class="about__stat-number">
                   <img src="./images/about/Experience.png" alt="icon" />
@@ -125,7 +157,6 @@
                 <p class="about__stat-text">years of relevant experience</p>
               </div>
 
-              <!-- 30+ -->
               <div class="about__stat">
                 <div class="about__stat-number">
                   <img src="./images/about/Clients.png" alt="icon" />
@@ -138,7 +169,6 @@
                 </p>
               </div>
 
-              <!-- 500+ -->
               <div class="about__stat">
                 <div class="about__stat-number">
                   <img src="./images/about/Probono.png" alt="icon" />
@@ -151,7 +181,6 @@
           </div>
         </section>
 
-        <!-- СЕКЦІЯ TEAM PHOTO (Контейнер 1440px) -->
         <section class="team-photo">
           <img
             src="./images/about/Team.jpg"
@@ -161,10 +190,8 @@
           <h2 class="team-photo__title">team</h2>
         </section>
 
-        <!-- СЕКЦІЯ QUALITY (Контейнер 1080px) -->
         <section class="quality">
-          <div class="container-small">
-            <!-- Перша колонка Grid -->
+          <div class="container-medium">
             <div class="quality__content">
               <p class="quality__text">
                 The historically unchanged legal profession has begun to
@@ -174,7 +201,7 @@
                 Clearwell prove that the technological revolution in legal
                 services has begun and is imminent.
               </p>
-              <p class="quality__text">
+              <p class="quality__text quality__text--accent">
                 Quality is what we care about the most.
               </p>
               <p class="quality__text">
@@ -184,7 +211,6 @@
               </p>
             </div>
 
-            <!-- Друга колонка Grid -->
             <div class="quality__content">
               <h3 class="quality__title">
                 Quality is what we care about the most.
@@ -192,17 +218,13 @@
             </div>
           </div>
         </section>
-        <!-- =========================================================
-     СЕКЦІЯ СЛАЙДЕРА З ЗАГОЛОВКОМ (Контейнер 1080px, сірий фон)
-     ========================================================= -->
+
         <section class="team-slider">
-          <div class="container-small">
-            <!-- ЗАГОЛОВОК СЕКЦІЇ -->
+          <div class="container-medium">
             <h3 class="team-slider__title">achievements</h3>
 
             <div class="swiper teamSwiper">
               <div class="swiper-wrapper">
-                <!-- Слайд 1 -->
                 <div class="swiper-slide team-slide">
                   <img
                     src="./images/about/Achievment-1.png"
@@ -211,7 +233,6 @@
                     class="team-slide__img"
                   />
                 </div>
-                <!-- Слайд 2 -->
                 <div class="swiper-slide team-slide">
                   <img
                     src="./images/about/Achievment-2.png"
@@ -220,7 +241,6 @@
                     class="team-slide__img"
                   />
                 </div>
-                <!-- Слайд 3 -->
                 <div class="swiper-slide team-slide">
                   <img
                     src="./images/about/Achievment-3.png"
@@ -229,7 +249,6 @@
                     class="team-slide__img"
                   />
                 </div>
-                <!-- Слайд 4 -->
                 <div class="swiper-slide team-slide">
                   <img
                     src="./images/about/Achievment-4.png"
@@ -238,7 +257,6 @@
                     class="team-slide__img"
                   />
                 </div>
-                <!-- Слайд 1 -->
                 <div class="swiper-slide team-slide">
                   <img
                     src="./images/about/Achievment-1.png"
@@ -247,7 +265,6 @@
                     class="team-slide__img"
                   />
                 </div>
-                <!-- Слайд 2 -->
                 <div class="swiper-slide team-slide">
                   <img
                     src="./images/about/Achievment-2.png"
@@ -256,7 +273,6 @@
                     class="team-slide__img"
                   />
                 </div>
-                <!-- Слайд 3 -->
                 <div class="swiper-slide team-slide">
                   <img
                     src="./images/about/Achievment-3.png"
@@ -265,7 +281,6 @@
                     class="team-slide__img"
                   />
                 </div>
-                <!-- Слайд 4 -->
                 <div class="swiper-slide team-slide">
                   <img
                     src="./images/about/Achievment-4.png"
@@ -275,21 +290,14 @@
                   />
                 </div>
               </div>
-
-              <!-- Крапочки пагінації знизу -->
               <div class="swiper-pagination"></div>
             </div>
           </div>
         </section>
       </main>
-      <!-- =========================================================
-     FOOTER
-     ========================================================= -->
 
       <footer class="footer">
-        <!-- Ми видалили проміжний div, тепер тут одразу йде top -->
         <div class="footer__top">
-          <!-- Ліва частина -->
           <div class="footer__info">
             <div class="footer__address">
               <a
@@ -315,7 +323,7 @@
                 href="https://facebook.com"
                 class="header-contacts__fb"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 <img
                   src="./images/about/Facebook-Footer.png"
@@ -328,23 +336,23 @@
                   class="header-contacts__fb-icon-hover"
                 />
               </a>
+
               <a href="tel:0800211927" class="footer__phone">0800 211 927</a>
-              <a href="mailto:contact@forstudy.space" class="footer__email"
-                >contact@forstudy.space</a
-              >
+
+              <a href="mailto:contact@forstudy.space" class="footer__email">
+                contact@forstudy.space
+              </a>
             </div>
           </div>
-
-          <!-- Права частина -->
           <p class="footer__copyright">
             © <span id="currentYear">2026</span> HLEGAL LAW COMPANY
           </p>
         </div>
       </footer>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="/js/slider.js"></script>
     <script src="./js/main.js"></script>
+    <script src="js/lang-switcher.js"></script>
   </body>
 </html>

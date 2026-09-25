@@ -1,8 +1,51 @@
-/* =========================================
-   ШРИФТИ
-   ========================================= */
+/* =========================================================
+КОЛІРНІ ЗМІННІ 
+   ========================================================= */
+$main-text-color: #323264;
+$secondary-text-color: #b3b3ba;
+$white-color: #ffffff;
+$accent-color: #f0145a;
+$blue-color: #24a3ff;
+$black-color: #000000;
+$grey-bg: #f5f5fa;
+$separator-color: #e6e6f0;
 
-/* Montserrat Regular — звичайний текст */
+$gradient-red-text: linear-gradient(90.13deg, #f0145a 0.84%, #ef8080 99.96%);
+
+$gradient-red-text-reverse: linear-gradient(
+  90.13deg,
+  #f0145a 0.84%,
+  #ef8080 99.96%
+);
+
+$home-gradient: linear-gradient(
+  228.57deg,
+  #323264 11.93%,
+  #323264 57.17%,
+  #643e72 87.46%
+);
+
+$white-transparent: rgba(255, 255, 255, 0.7);
+
+$layer-bg-medium: rgba(202, 202, 219, 1);
+$layer-bg-light: rgba(231, 231, 242, 1);
+
+$text-muted: rgba(179, 179, 186, 1);
+
+$hillel-color: #1c4280;
+$wannabiz-color: #143646;
+$tapgerine-color: #f48b30;
+$threedlook-color: #9e4dc3;
+$orangear-color: #fd9339;
+$adtelligent-color: #e2e2e4;
+$clickky-color: #c71c36;
+$ecoleasing-color: #dcf3f9;
+$infratek-color: #eaeaea;
+$citypark-color: #282240;
+$artprint-color: #1d4568;
+/* =========================================================
+   ЛОКАЛЬНЕ ПІДКЛЮЧЕННЯ ШРИФТІВ
+   ========================================================= */
 @font-face {
   font-family: "Montserrat";
   src:
@@ -13,7 +56,6 @@
   font-display: swap;
 }
 
-/* Montserrat Bold — жирний текст */
 @font-face {
   font-family: "Montserrat";
   src:
@@ -24,61 +66,48 @@
   font-display: swap;
 }
 
-$main-text-color: #323264;
-$secondary-text-color: #b3b3ba;
-$white-color: #ffffff;
-$accent-color: #f0145a;
-$blue-color: #24a3ff;
-$gradient-red-text: linear-gradient(90.13deg, #f0145a 0.84%, #ef8080 40.96%);
-$black-color: #000000;
-$grey-bg: #f5f5fa;
-$separator-color: #e6e6f0;
-/* =========================================
-   БАЗОВІ НАЛАШТУВАННЯ
-   ========================================= */
-
-/*
+/* =========================================================
+ GLOBAL BASE SETTINGS 
+   ========================================================= */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-
-  Робимо так, щоб padding і border
-  входили в задану ширину елемента.
-*/
-* {
-  box-sizing: border-box;
-}
-
-/*
-  Прибираємо стандартні відступи браузера
-  у html та body.
-*/
-html,
-body {
   margin: 0;
   padding: 0;
 }
 
-/*
-  Встановлюємо Montserrat
-  як основний шрифт сайту.
-*/
-body {
-  font-family: "Montserrat", sans-serif;
+html {
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
-/*
-  Прибираємо стандартне підкреслення
-  у посилань.
-*/
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $white-color;
+  background-color: $white-color;
+  min-height: 100%;
+}
+
 a {
+  color: inherit;
   text-decoration: none;
 }
 
-/*
-  Прибираємо стандартний стиль кнопок.
-*/
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 button {
-  border: none;
-  background: none;
-  padding: 0;
+  font-family: inherit;
   cursor: pointer;
 }
